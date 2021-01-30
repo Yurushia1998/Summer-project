@@ -92,8 +92,8 @@ for epoch in range(num_epoches):
     derr = 0
     gerr = 0
     keyerr = 0
-    num_iterations = math.ceil(train_real_loader.__len__())
-    num_iterations_2 = math.ceil(train_fake_loader.__len__())
+    num_iterations = math.floor(train_real.__len__()/batches)
+    #print("Number_iteration: ",num_iterations," ",train_real.__len__()," ",train_fake.__len__())
    
     dataloader_real_iterator = iter(train_real_loader)
     dataloader_fake_iterator = iter(train_fake_loader)
