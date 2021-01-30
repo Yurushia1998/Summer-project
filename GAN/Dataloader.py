@@ -86,7 +86,7 @@ class Dataset6D(Dataset):
             num_file_obj = len([f for f in os.listdir(os.path.join(img_path,get_id(i+1),"rgb")) if f.endswith(".png")])
 
             self.files += [os.path.join(img_path,get_id(i+1),"rgb",get_id(img_index)+".png") for img_index in range(num_file_obj)]
-
+        
         if type_data == "fake":
             self.key_points = get_all_key_points(self.all_key_points_path,img_path,num_objects)
         else:

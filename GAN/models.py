@@ -17,17 +17,22 @@ class Discriminator(nn.Module):
         
         self.layer1 = nn.Sequential(
         nn.Linear(ip_emb, emb1),
-        nn.LeakyReLU(0.2))
+        nn.LeakyReLU(0.2),
+        nn.Dropout(0.3))
+
         
         self.layer2 = nn.Sequential(
         nn.Linear(emb1, emb2),
         nn.LeakyReLU(0.2),
+        nn.Dropout(0.3),
         nn.Linear(emb2, emb3),
-        nn.LeakyReLU(0.2))
+        nn.LeakyReLU(0.2),
+        nn.Dropout(0.3))
         
         self.layer3 = nn.Sequential(
         nn.Linear(emb3, emb4),
-        nn.LeakyReLU(0.2))
+        nn.LeakyReLU(0.2),
+        nn.Dropout(0.3))
         
         self.layer_out = nn.Sequential(
         nn.Linear(emb4, out_emb),
@@ -66,13 +71,13 @@ class Generator(nn.Module):
         nn.Conv2d(in_channels = 20,out_channels = 10, kernel_size = (5,5)),
         nn.MaxPool2d(kernel_size = (2,2),stride = 2),
         nn.Dropout(0.3),
-        nn.Flatten())
+        nn.Flatten(),
+         nn.Tanh())
         
         
         
     def forward(self, x):
-        print()
-        print("Running generator")
+        
         #print("Size before: ",x.size())
         x = self.layer1(x)
         #print("Size before 1: ",x.size())
@@ -105,8 +110,7 @@ class KeyPointDetector(nn.Module):
         nn.LeakyReLU(0.2))
         
         self.layer_out = nn.Sequential(
-        nn.Linear(emb3, out_emb),
-        nn.Sigmoid())
+        nn.Linear(emb3, out_emb))
         
     def forward(self, x):
         x = self.layer1(x)
