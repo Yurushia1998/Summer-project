@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 torch.manual_seed(0)
 np.random.seed(0)
 batches = 8
-num_epoches = 10
+num_epoches = 20
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 is_cuda = torch.cuda.is_available()
 model_save_path = "Models/Final_model_"+str(num_epoches)+".pth"
@@ -38,16 +38,20 @@ load_path = "Models/Final_model_"+str(num_epoches)+".pth"
 
 train_real =  Dataset6D(train_data_real_path,key_points_path,num_objects = 15,   trans = trans,type_data = "real")
 train_fake= Dataset6D(train_data_fake_path,key_points_path, num_objects = 15,  trans = trans,type_data = "fake")
+
+'''
 test_real = Dataset6D(test_data_real_path,key_points_path,num_objects = 15,   trans = trans,type_data = "real")
 test_fake = Dataset6D(test_data_fake_path,key_points_path,num_objects = 15,   trans = trans,type_data = "real")
 
-
+'''
 train_real_loader = torch.utils.data.DataLoader(train_real, batch_size=batches, shuffle = False, num_workers = 0)
 train_fake_loader =torch.utils.data.DataLoader(train_fake, batch_size=batches, shuffle = False, num_workers = 0)
+
+'''
 test_real_loader = torch.utils.data.DataLoader(test_real, batch_size=1, shuffle = False, num_workers = 0)
 test_fake_loader = torch.utils.data.DataLoader(test_fake, batch_size=1, shuffle = False, num_workers = 0)
 
-
+'''
 
 discriminator = Discriminator()
 generator = Generator()
