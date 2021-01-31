@@ -25,12 +25,14 @@ trans = transforms.Compose([transforms.ToTensor()])
 
 
 
-train_data_real_path =  "/Users/macbookpro/Downloads/Adelaide_Academic_Year_2020/Summer project/Bo Chen/Summer-project/GAN_data/real"
+train_data_real_path =  "real"
+# "/Users/macbookpro/Downloads/Adelaide_Academic_Year_2020/Summer project/Bo Chen/Summer-project/GAN_data/real"
 test_data_real_path =  "/Users/macbookpro/Downloads/Adelaide_Academic_Year_2020/Summer project/Bo Chen/Summer-project/GAN_data/test_real"
 test_data_fake_path =  "/Users/macbookpro/Downloads/Adelaide_Academic_Year_2020/Summer project/Bo Chen/Summer-project/GAN_data/test_fake"
 
 key_points_path = "lm_fps"
-train_data_fake_path = "/Users/macbookpro/Downloads/Adelaide_Academic_Year_2020/Summer project/Bo Chen/Summer-project/GAN_data/fake"
+train_data_fake_path = "fake"
+#"/Users/macbookpro/Downloads/Adelaide_Academic_Year_2020/Summer project/Bo Chen/Summer-project/GAN_data/fake"
 output_save_path = "Output_test"
 load_path = "Models/Final_model_"+str(num_epoches)+".pth"
 
